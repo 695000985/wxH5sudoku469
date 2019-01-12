@@ -4,8 +4,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './AppH5'
 import router from './router'
-import wxService from './api/wxService'
-import httpService from './api/httpService'
+
+import httpService from './api/H5Api'
 import store from './store'
 
 Vue.config.productionTip = false
@@ -13,9 +13,10 @@ Vue.use(Vuex)
 Vue.mixin({
   data () {
     return {
-      service: '', // 服务
+      api: httpService, // 服务
       router: '/', // 路由路径
-      imgSrc: '' // 图片路径
+      imgSrc: '', // 图片路径
+      agentType: 'H5'
     }
   },
   methods: {
@@ -30,8 +31,8 @@ Vue.mixin({
       }
   },
   created () {
-      console.log('chrome')
-      this.service = httpService
+
+    
   }
 })
 /* eslint-disable no-new */

@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
-import wxService from './api/wxService'
-import httpService from './api/httpService'
+import wxService from './api/wxApi'
+
+
 
 Vue.config.productionTip = false
 App.mpType = 'app'
@@ -11,9 +12,10 @@ Vue.prototype.$store = store
 Vue.mixin({
   data() {
     return {
-      service: '',
+      api: wxService,
       router: '/',
-      imgSrc: '/'
+      imgSrc: '/',
+      agentType: 'wx'
     }
   },
   methods: {
@@ -28,8 +30,8 @@ Vue.mixin({
       }
   },
   created() {
-      console.log('wx')
-      this.service = wxService
+      
+
   }
 })
 

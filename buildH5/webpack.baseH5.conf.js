@@ -4,6 +4,10 @@ const utils = require('./utils')
 const config = require('../configH5')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+global.jhyconfig = global.jhyconfig || {};
+global.jhyconfig.agent = 'H5';
+
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }

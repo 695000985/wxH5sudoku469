@@ -6,6 +6,9 @@ var vueLoaderConfig = require('./vue-loader.conf')
 var MpvuePlugin = require('webpack-mpvue-asset-plugin')
 var glob = require('glob')
 
+global.jhyconfig = global.jhyconfig || {};
+global.jhyconfig.agent = 'wx';
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
