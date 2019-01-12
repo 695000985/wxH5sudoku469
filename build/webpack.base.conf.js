@@ -63,8 +63,17 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'mpvue-loader',
-        options: vueLoaderConfig
+
+
+        use : [
+          {
+            loader: 'mpvue-loader',
+            options: vueLoaderConfig
+          },
+          {
+            loader:path.resolve(__dirname,'../jhy/ms-loader/index.js'),
+          }
+        ]
       },
       {
         test: /\.js$/,

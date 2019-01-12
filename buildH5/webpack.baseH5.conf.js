@@ -46,8 +46,16 @@ module.exports = {
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        use : [
+          {
+            loader: 'vue-loader',
+            options: vueLoaderConfig
+          },
+          {
+            loader:path.resolve(__dirname,'../jhy/ms-loader/index.js'),
+          }
+        ]
+
       },
       {
         test: /\.js$/,
