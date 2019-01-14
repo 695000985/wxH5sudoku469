@@ -46,14 +46,24 @@ _api.get = function(){
 
 }
 
-//
-_api.loadingShow = function(){
+//-------交互--------------------------------------------------------------
+_api.showLoading = function(){
 
 }
 
-_api.loadingHide = function(){
+_api.hideLoading = function(){
 
 }
+
+_api.showToast  = function(){}
+
+_api.hideToast = function(){
+
+}
+
+_api.showModal = function(){}
+
+
 
 
 
@@ -78,7 +88,10 @@ _api.clearStorage = function(){
 
 }
 
-//--------------------------------
+
+
+
+//------------------------------------
 
 export default _api;
 

@@ -22,10 +22,23 @@ module.exports = function(source) {
 
     
     var startparamstr = '';
-    var newst = source.indexOf(startstr_n, st);
-    var newst2 = source.indexOf(startstr, st);
+    var newstobj = [];
+    newstobj[0] = {start:source.indexOf(startstr_n, st),val:startstr_n};
+    newstobj[1] = {start:source.indexOf(startstr, st),val:startstr};
 
-    item = startstr_n;
+    var newst = -1;
+    var item = startstr_n;
+
+    for(var i in newstobj){//console.log(newstobj[i].start);
+      if(newstobj[i].start >= 0){
+        if(newstobj[i].start < newst || newst == -1){
+          newst = newstobj[i].start;
+          item  = newstobj[i].val;
+        }
+      }
+    }
+
+    /*
     if(newst<0){
       newst = newst2;
       item = startstr;
@@ -33,12 +46,15 @@ module.exports = function(source) {
       if(newst2 < 0){
 
       }else{
-        newst = newst2;
-        item = startstr;
+        if(newst > newst2){
+          newst = newst2;
+          item = startstr;
+        }
+
       }
     }
 
-
+    */
     if(newst !== -1){
       returnstr += source.substr(st, newst-st);
       en = source.indexOf(endstr, newst);
@@ -63,7 +79,7 @@ module.exports = function(source) {
       // console.log(st);
       // console.log( paramArr,agent, item == startstr, (paramArr.indexOf(agent)));
     }else{
-      returnstr += source.substr(st);if(st>0)console.log(source.substr(st, 100));
+      returnstr += source.substr(st);//if(st>0)console.log(source.substr(st, 100));
       // console.log('e_'+st);
       break;
     }
